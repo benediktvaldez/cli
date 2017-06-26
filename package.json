@@ -1,0 +1,27 @@
+{
+  "name": "@benediktvaldez/cli",
+  "version": "0.0.0",
+  "description": "CLI for some arbitrary custom commands",
+  "author": {
+    "name": "Benedikt D Valdez",
+    "email": "hi@valdez.is",
+    "url": "https://www.valdez.is"
+  },
+  "bin": {
+    "b": "index.js"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "chalk": "^1.1.3",
+    "conf": "^1.1.1",
+    "meow": "^3.7.0",
+    "ora": "^1.2.0"
+  },
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "execa": "^0.6.3",
+    "husky": "^0.13.4",
+    "lint-staged": "^3.6.0",
+    "prettier": "^1.4.2"
+  }
+}
