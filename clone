@@ -1,0 +1,40 @@
+#!/bin/bash
+i=0
+
+for GITPATH in "$@"
+do
+  FOLDERPATH=$GITPATH
+  PREFIX="git@github.com:"
+  SUFFIX=".git"
+
+  if [[ $GITPATH != *"git@"* ]]
+  then
+    GITPATH=$(echo $PREFIX$GITPATH$SUFFIX)
+  else
+    FOLDERPATH=${FOLDERPATH#$PREFIX}
+    FOLDERPATH=${FOLDERPATH%$SUFFIX}
+  fi
+
+  FOLDERPATH=$(echo ~/code/$FOLDERPATH)
+
+  if [[ -d "$FOLDERPATH" ]]
+  then
+    echo "Already exists ($FOLDERPATH)"
+  else
+    echo "---------------------------------"
+    echo "Cloning"
+    echo $GITPATH
+    echo "into"
+    echo $FOLDERPATH
+    $(git clone $GITPATH $FOLDERPATH)
+    $(gittower $FOLDERPATH)
+  fi
+
+  ((i++))
+done
+
+if [[ $i = 1 ]]
+then
+  echo "cd $FOLDERPATH"
+  cd $FOLDERPATH
+fi
