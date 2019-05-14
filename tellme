@@ -1,0 +1,7 @@
+#!/bin/bash
+
+sleep .2
+osascript -e 'tell application "iTerm"' -e 'activate' -e 'end tell'
+for i
+do say "${i}"
+done

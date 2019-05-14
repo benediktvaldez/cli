@@ -9,7 +9,8 @@
   },
   "bin": {
     "b": "index.js",
-    "clone": "clone"
+    "clone": "clone",
+    "tellme": "tellme"
   },
   "dependencies": {
     "axios": "^0.16.2",
